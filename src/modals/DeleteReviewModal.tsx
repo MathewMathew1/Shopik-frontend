@@ -2,7 +2,6 @@
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import { Button, ButtonGroup } from 'react-bootstrap';
-import AutoTextArea from '../smallComponents/AutoTextArea';
 import { SHOP_ITEM_REVIEWS_UPDATE } from '../helpers/routes';
 import { useUpdateSnackbar } from '../contexts/SnackBarContext';
 import { severityColors } from '../types/types';

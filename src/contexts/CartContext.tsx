@@ -45,7 +45,7 @@ const CartProvider = ({ children }: {children: any}): JSX.Element => {
     const cartItems = useArray<CartItem>([])
     const [amountOfItemInCart, setAmountOfNumbersInCart] = useState(0)
     const [totalPayment, setTotalPayment]  = useState(0)
-    const [searchParam, setSearchParam] = useSearchParams()
+    const [searchParam] = useSearchParams()
     const shopItemInfos = useArray<ShopItem>([])
     
     const firstUpdate = useRef(true);
@@ -136,9 +136,6 @@ const CartProvider = ({ children }: {children: any}): JSX.Element => {
             .catch(error=>{console.log(error)})
 
         return item    
-
-            
- 
     }
         
     useEffect(() => {
@@ -166,7 +163,8 @@ const CartProvider = ({ children }: {children: any}): JSX.Element => {
         return () => {
             
             controller.abort()
-        }  
+        } 
+        // eslint-disable-next-line react-hooks/exhaustive-deps 
     }, []);
 
     useEffect(() => {
@@ -180,7 +178,7 @@ const CartProvider = ({ children }: {children: any}): JSX.Element => {
             setTotalPayment(amountOfCashForCart)
         }
 
-        
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [amountOfItemInCart]);
 
     const addItemToCart = (shopItem: ShopItem, amount: number): void => {

@@ -9,7 +9,7 @@ const ImageModal = ({title, imageLink, showModal, setShowModal}:
                 <Modal.Title>{title}</Modal.Title>
             </Modal.Header>
             <Modal.Body style={{width: "100%"}}>
-                <img width={"100%"} src={imageLink}></img>
+                <img width={"100%"} src={imageLink} alt={title}></img>
             </Modal.Body>
 
         </Modal>

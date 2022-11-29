@@ -1,9 +1,4 @@
-import React, {
-	useState,
-	useEffect,
-	useRef,
-	TextareaHTMLAttributes,
-} from "react";
+import React, {useState, useRef,} from "react";
 
 const MAX_ROWS = 10
 const MIN_ROWS = 3

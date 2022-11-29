@@ -2,8 +2,6 @@ import  {useState, createContext, useContext, useEffect} from "react";
 import { severityColors, UserInfo } from "../types/types";
 import { USER_DATA_ROUTE } from "../helpers/routes";
 
-import useArray from "../customHooks/useArray";
-import { useUpdateSnackbar } from "./SnackBarContext";
 
 type UserContextProps = {    
     logged: boolean; 
@@ -59,7 +57,7 @@ const UserProvider = ({ children }: {children: React.ReactNode}): JSX.Element =>
             }})
             .then(response => response.json())
             .then(response => {
-                if(!("error" in response || response.status==401)){
+                if(!("error" in response || response.status===401)){
                     setLogged(true)
                     setUserInfo(response.userInfo)           
                 }
@@ -76,6 +74,7 @@ const UserProvider = ({ children }: {children: React.ReactNode}): JSX.Element =>
         return () => {
             controller.abort()
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
 
