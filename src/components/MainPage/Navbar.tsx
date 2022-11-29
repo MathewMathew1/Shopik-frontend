@@ -32,7 +32,7 @@ const NavbarComponent = () => {
     const cart = useCart()
     const snackbarUpdate = useUpdateSnackbar()
 
-    const [searchParam, setSearchParam] = useSearchParams()
+    const [searchParam] = useSearchParams()
 
     useEffect(() => {
         let transaction = searchParam.get(TRANSACTION_SUCCESS_VALUES.transaction.key)
@@ -41,7 +41,7 @@ const NavbarComponent = () => {
             snackbarUpdate.addSnackBar({snackbarText: "Successfully ordered items", severity: severityColors.success})
 
         }
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

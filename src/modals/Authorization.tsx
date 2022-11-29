@@ -185,7 +185,8 @@ const Authorization = ():
                 'Content-type': 'application/json; charset=UTF-8',
             }})
             .then(response => response.json())
-            .then(response => {       
+            .then(response => { 
+                console.log(response)      
                 if(!("error" in response)){
                     userUpdate.setIsAuthModalOpen(false)
                     localStorage.setItem("token", response.accessToken)

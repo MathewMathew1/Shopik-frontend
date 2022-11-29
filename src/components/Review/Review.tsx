@@ -16,7 +16,7 @@ const Review = ({review, setShowUpdateModal, setShowDeleteModal}: {
     return(
         <div>
             {
-                review.userId == user.userInfo?.id?
+                review.userId === user.userInfo?.id?
                     <div className='badge-group'>
                         <Badge pill bg="info">
                             Your Review

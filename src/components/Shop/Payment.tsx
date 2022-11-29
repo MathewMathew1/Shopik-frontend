@@ -1,7 +1,7 @@
 import useArray from '../../customHooks/useArray';
 import { CartItem, severityColors, ShopItem } from '../../types/types';
 import { useEffect, useState } from 'react';
-import { useCart, useUpdateCart} from '../../contexts/CartContext';
+import { useCart } from '../../contexts/CartContext';
 import Table from 'react-bootstrap/Table';
 import { Alert, Button, Form } from 'react-bootstrap';
 import { useSearchParams } from 'react-router-dom';
@@ -84,7 +84,7 @@ const Payment = () => {
         }
 
         checkItemInParam() 
-        
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const changeRegion = (region: string) => {

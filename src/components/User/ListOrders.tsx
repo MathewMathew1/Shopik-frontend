@@ -1,11 +1,9 @@
-import { Order, ShopItem } from "../../types/types";
+import { Order} from "../../types/types";
 import { SHOP_ORDER_GET } from "../../helpers/routes";
 import { useEffect, useState } from "react";
 import OrderNotCompleted from "./OrderNotCompleted";
 import OrderCompleted from "./OrderCompleted copy";
 import { Spinner } from "react-bootstrap";
-
-
 
 const DisplayOrders = ({orders, loaded}:{orders: Order[], loaded: boolean}) => {
     return(
@@ -125,7 +123,7 @@ const ListOrders = () => {
                 setOrdersCompleted({orders: [], loaded: false})
             })
             .catch(error=>{console.log(error)})
- 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
 

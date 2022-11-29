@@ -62,6 +62,7 @@ const HomePage = () => {
         return () => {
             controller.abort()
         }    
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchParams.get("page")]);
 
     const searchForItems = (name: string, season: SeasonEnum, sort: boolean, page: number): void => {

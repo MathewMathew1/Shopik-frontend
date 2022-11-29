@@ -1,6 +1,6 @@
 import { RoleEnum, severityColors, ShopItem, ShopItemReview } from '../../types/types';
 import { useState, useEffect } from 'react';
-import { SHOP_ITEM_ROUTE, SHOP_ITEM_REVIEWS, SHOP_ITEM_RATING } from '../../helpers/routes';
+import { SHOP_ITEM_REVIEWS, SHOP_ITEM_RATING } from '../../helpers/routes';
 import { useNavigate, useParams } from "react-router-dom"
 import Spinner from 'react-bootstrap/Spinner';
 import { Button } from 'react-bootstrap';
@@ -16,7 +16,6 @@ import { useUpdateSnackbar } from '../../contexts/SnackBarContext';
 import ReviewModal from '../../modals/ReviewModal';
 import DeleteReviewModal from '../../modals/DeleteReviewModal';
 import { useCart, useUpdateCart } from '../../contexts/CartContext';
-import { Link } from "react-router-dom";
 import Magnifier from '../../smallComponents/Magnifier';
 
 const ReviewR: ShopItemReview = {
@@ -120,7 +119,8 @@ const ShopItemComponent = () => {
 
         return () => {
             controller.abort()
-        }    
+        }  
+        // eslint-disable-next-line react-hooks/exhaustive-deps  
     }, [params.Id]);
 
     const removeReviewFromList = () => {
@@ -159,7 +159,7 @@ const ShopItemComponent = () => {
     const rateProduct = (numberOfStars: number): void => {
         const body = {
             "Rate": numberOfStars
-          }
+        }
         
         const { signal } = controller
 
@@ -195,6 +195,7 @@ const ShopItemComponent = () => {
                 return
             };
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user.userInfo?.id, shopItemReviews.array.length]);
 
     const postReview = () => {
