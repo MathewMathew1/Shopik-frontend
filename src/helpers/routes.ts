@@ -8,7 +8,7 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
     SITE_ROUTE_URL = "http://localhost:3000"
 }
 else{
-    BASE_ROUTES_URL = "http://localhost/api/v1/"
+    BASE_ROUTES_URL = "https://shopik-api.onrender.com/api/v1"
     SITE_ROUTE_URL = "http://localhost:3000"
 }
 

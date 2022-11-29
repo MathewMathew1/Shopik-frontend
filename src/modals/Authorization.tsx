@@ -1,6 +1,5 @@
 import { useState, useReducer, useEffect } from 'react';
 import { LOGIN_ROUTE, SIGNUP_ROUTE } from '../helpers/routes';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -9,9 +8,7 @@ import CSS from 'csstype';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useUpdateSnackbar } from '../contexts/SnackBarContext';
 import { severityColors } from '../types/types';
-import { sleep } from '../helpers/functions';
 import { useUser, useUserUpdate } from '../contexts/UserContext';
-
 
 const ICON_STYLE: CSS.Properties = {
     width: "6rem",

@@ -1,5 +1,4 @@
 import Container from 'react-bootstrap/Container';
-import { useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -8,7 +7,7 @@ import { Cart } from '../../helpers/Icons';
 import { Button } from 'react-bootstrap';
 import Authorization from '../../modals/Authorization';
 import { useSearchParams } from 'react-router-dom';
-import { useCart, useUpdateCart } from '../../contexts/CartContext';
+import { useCart} from '../../contexts/CartContext';
 import { Link } from "react-router-dom";
 import { useEffect } from 'react';
 import { useUpdateSnackbar } from '../../contexts/SnackBarContext';

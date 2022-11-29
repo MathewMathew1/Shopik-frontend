@@ -56,7 +56,6 @@ const HomePage = () => {
         else{
             pageNumber = currentPage
         }
-        console.log(pageNumber)
 
         searchForItems(nameToMatchParam, seasonToMatchParam as SeasonEnum, sort, pageNumber)
 
