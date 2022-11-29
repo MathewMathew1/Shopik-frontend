@@ -189,7 +189,7 @@ const Authorization = ():
                 console.log(response)      
                 if(!("error" in response)){
                     userUpdate.setIsAuthModalOpen(false)
-                    localStorage.setItem("token", response.accessToken)
+                    localStorage.setItem("token", response.data.accessToken)
                     const snackBarInfo = {message: "Login successfully", severity: severityColors.success}
                     sessionStorage.setItem("snackbar", JSON.stringify(snackBarInfo))
                     if(user.redirectUrlAfterLogin!==null){
