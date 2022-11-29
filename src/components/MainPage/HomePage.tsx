@@ -65,7 +65,6 @@ const HomePage = () => {
     }, [searchParams.get("page")]);
 
     const searchForItems = (name: string, season: SeasonEnum, sort: boolean, page: number): void => {
-        console.log(sortAscending)
         const { signal } = controller
         
         const additionalParameters: AdditionalParameters = {
@@ -87,8 +86,6 @@ const HomePage = () => {
             }})
             .then(response => response.json())
             .then(response => {
-                console.log(additionalParameters)
-                console.log(response)
                 if(!("error" in response)){
                     console.log(response.amountOfItems)
                     setAmountOfPages(Math.ceil(response.amountOfItems/AMOUNT_OF_ITEMS_PER_PAGE))
