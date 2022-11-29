@@ -14,15 +14,15 @@ else{
 
 
 const LOGIN_ROUTE = (): string => {
-    return BASE_ROUTES_URL + "login"
+    return BASE_ROUTES_URL + "auth/login"
 }
 
 const SIGNUP_ROUTE = (): string => {
-    return BASE_ROUTES_URL + "sign-up"
+    return BASE_ROUTES_URL + "auth/sign-up"
 }
 
 const USER_DATA_ROUTE = (): string => {
-    return BASE_ROUTES_URL + "userInfo"
+    return BASE_ROUTES_URL + "auth/userInfo"
 }
 
 const SHOP_ITEMS_ROUTE = ({nameToMatch, seasonToMatch, sortAscending, page, limit}: 
