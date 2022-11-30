@@ -92,7 +92,7 @@ const PaginationComponent  = ({numberOfPages, currentPage}: {numberOfPages: numb
             <Pagination.Prev disabled={currentPage===1} onClick={()=>updatePage((currentPage-1).toString())}/>
             <Pagination.Item active={currentPage===1}  onClick={()=>updatePage("1")}>{1}</Pagination.Item>
             <RestOfPagination updatePage={updatePage} numberOfPages={numberOfPages} currentPage={currentPage}/>
-            <Pagination.Item hidden={numberOfPages===1} active={currentPage===numberOfPages}   onClick={()=>updatePage(numberOfPages.toString())}>{numberOfPages}</Pagination.Item>
+            <Pagination.Item hidden={numberOfPages<=1} active={currentPage===numberOfPages}   onClick={()=>updatePage(numberOfPages.toString())}>{numberOfPages}</Pagination.Item>
             <Pagination.Next disabled={currentPage===numberOfPages}  onClick={()=>updatePage((currentPage+1).toString())} />
             <input onKeyDown={(e)=>handleKeypress(e)} type={"number"}  maxLength={4} value={newPage} onChange={(e)=>changePage(e.target.value)} style={paginationInput}></input>
         </Pagination>
