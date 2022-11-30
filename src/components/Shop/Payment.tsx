@@ -208,12 +208,11 @@ const Payment = () => {
         const {transaction, cartRemove} = TRANSACTION_SUCCESS_VALUES
 
         const cartUrlParam = addCartItems? `&${cartRemove.key}=${cartRemove.value}`: ""
-
         const body = {
             "Address": addressData.address,
             "Country": countryData.country,
             "PostalCode": postalCodeData.postalCode,
-            "Regions": regionData.region,
+            "Region": regionData.region,
             "City": cityData.city,
             "OrderedItems": orderedItems,
             "RedirectUrlSuccess": `${SITE_ROUTE_URL}?${transaction.key}=${transaction.value}${cartUrlParam}`,
