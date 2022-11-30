@@ -52,7 +52,6 @@ const NavbarComponent = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse style={{flexGrow: 0}}>
                         <Nav className="me-auto justify-content-end ">
-                            <Nav.Link href="#home">Home</Nav.Link>
                             <Nav.Link as={Link} to="/cardItems">
                                
                                     <div className='badge-holder'>
