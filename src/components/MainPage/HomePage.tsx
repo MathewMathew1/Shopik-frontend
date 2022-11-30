@@ -88,11 +88,10 @@ const HomePage = () => {
             .then(response => response.json())
             .then(response => {
                 if(!("error" in response)){
-                    console.log(response.amountOfItems)
                     setAmountOfPages(Math.ceil(response.amountOfItems/AMOUNT_OF_ITEMS_PER_PAGE))
 
                     setSearchParams({...searchParams, ...additionalParameters})
-                    var items: ShopItem[] = response.items
+                    let items: ShopItem[] = response.items
                     shopItems.set(items)           
                 }
             })
