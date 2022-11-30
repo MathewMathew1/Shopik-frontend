@@ -99,6 +99,12 @@ const HomePage = () => {
             .catch(error=>{console.log(error)})
     }
 
+    const handleKeyPress = (e: React.KeyboardEvent): void => {
+        if(e.key === 'Enter'){
+          searchForItems(nameToMatch, seasonToMatch, sortAscending, currentPage)
+        }
+    }
+
     return(
         <div >
             <div className="select-area">
@@ -119,7 +125,7 @@ const HomePage = () => {
                     </Form.Select> 
                 </div>         
                 <div>
-                    <Form.Control value={nameToMatch} onChange={(e)=>setNameToMatch(e.target.value)} type="text" placeholder="name to match" />
+                    <Form.Control onKeyDown={(e)=>handleKeyPress(e)} value={nameToMatch} onChange={(e)=>setNameToMatch(e.target.value)} type="text" placeholder="name to match" />
                 </div>
                 <Button onClick={()=>searchForItems(nameToMatch, seasonToMatch, sortAscending, currentPage)} >Search</Button>
             </div>       
