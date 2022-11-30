@@ -12,8 +12,7 @@ import { useUser, useUserUpdate } from '../contexts/UserContext';
 
 const ICON_STYLE: CSS.Properties = {
     width: "6rem",
-    height: "6rem",
-    
+    height: "6rem", 
 };
 
 const BUTTON_TEXT = {

@@ -4,18 +4,27 @@ import { useEffect, useState } from "react";
 import OrderNotCompleted from "./OrderNotCompleted";
 import OrderCompleted from "./OrderCompleted copy";
 import { Spinner } from "react-bootstrap";
+import CSS from 'csstype';
+
+
+const ICON_STYLE: CSS.Properties = {
+    display: "flex",
+    flexDirection: "column",
+    gap: "1rem",
+};
+
 
 const DisplayOrders = ({orders, loaded}:{orders: Order[], loaded: boolean}) => {
     return(
         <>
             {
                 loaded?
-                    <>
+                    <div style={ICON_STYLE}>
                         {orders.length>0?
                             <>
                                 {orders.map((value, index) => {
                                     return(
-                                        <OrderNotCompleted order={value} />
+                                        <OrderNotCompleted order={value} key={`${index} order`} />
                                     )
                                 })}
                             </>
@@ -24,7 +33,7 @@ const DisplayOrders = ({orders, loaded}:{orders: Order[], loaded: boolean}) => {
                                     <h4> No Incoming orders</h4>
                                 </div>    
                         }
-                    </>
+                    </div>
                 : 
                 <div className='centered' >
                     <Spinner animation="border" variant="primary" style={{height: "10rem", width: "10rem"}} />
@@ -41,13 +50,13 @@ const DisplayCompleted = ({orders, loaded}:{orders: Order[], loaded: boolean}) =
                 loaded?
                     <>
                         {orders?.length>0?
-                            <>
+                            <div style={ICON_STYLE}>
                                 {orders.map((value, index) => {
                                     return(
-                                        <OrderCompleted order={value} />
+                                        <OrderCompleted key={`${index} order completed`} order={value} />
                                     )
                                 })}
-                            </>
+                            </div>
                             :
                                 <div>
                                     <h4> No completed orders</h4>
