@@ -257,7 +257,7 @@ const Payment = () => {
     }
 
     return(
-        <div className='margin-top-bg'>       
+        <div className='margin-top-bg payment-section'>       
             <h3> Payment: </h3>
             <div className='flex-column'>
                 <Form onSubmit={()=>order()}>

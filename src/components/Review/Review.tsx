@@ -14,7 +14,7 @@ const Review = ({review, setShowUpdateModal, setShowDeleteModal}: {
     const user = useUser()
 
     return(
-        <div>
+        <div className='glass'>
             {
                 review.userId === user.userInfo?.id?
                     <div className='badge-group'>

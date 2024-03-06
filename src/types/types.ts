@@ -42,6 +42,7 @@ export type ShopItem = {
     amountOfRatings: number;
     averageRating: number;
     imageFilePath: string;
+    ratings: [{Rate: number,}],
 }
 
 export type ShopItemReview = {

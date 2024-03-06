@@ -3,10 +3,15 @@
   display:flex; 
   flex-direction:column;
   min-height: 100vh;
+  background-color: #d1d6e1;
 }
 
 .body-el{
   flex: 1
+}
+
+.payment-section{
+  background-color: #f1eeee;
 }
 
 .App-logo {
@@ -21,10 +26,12 @@
   flex-wrap: wrap;
 }
 
+.order-section{
+  background-color: white;
+}
+
 :root{
-
   --blue-hover: rgb(38, 193, 231);
-
   --progress-circle-color: var(--green-starting);
   --progress-circle-height: 50px;
   --progress-circle-width: 50px;
@@ -69,13 +76,14 @@
 }
 
 .order-area{
-  padding-top: 1rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   border-style: ridge;
 }
 
 .payment-area{
+  padding: 0.6rem;
   width: 80%;
   overflow: auto;
   margin: auto;
@@ -87,7 +95,7 @@
 }
 
 .rating-area{
-  padding: 0.2rem;
+  padding: 0.8rem;
   border-style: ridge;
 }
 
@@ -202,6 +210,7 @@
 }
 
 .reviews{
+  gap: 0.4rem;
   display: flex;
   flex-wrap: wrap;
   overflow: auto;
@@ -235,7 +244,8 @@
 }
 
 .reviews > div {
-  flex: 50% 0; /* or - flex: 0 50% - or - flex-basis: 50% - */
+  padding: 0.8rem;
+  flex: 47% 0; /* or - flex: 0 50% - or - flex-basis: 50% - */
   /*demo*/
   border: #000;
   border-style: dotted;
@@ -273,15 +283,35 @@
   font-weight: bold;
 }
 
+.glass{ 
+  
+
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.info-table{
+  padding: 0.6rem;
+  width: 100%;
+}
+
+.info-table > tbody > tr > td {
+  padding: 0.5rem;
+}
+
 .info-block{
   border-style: ridge;
   margin: 1rem 0.4rem 1rem 0.4rem;
-  padding: 0.2rem;
+  padding: 0.5rem;
 }
 
 .description-area{
    border-style: ridge;
-   padding: 0.4rem;
+   padding: 0.8rem;
 }
 
 .shop-item-image{
@@ -329,13 +359,24 @@
   padding-left: 0.5rem;
 }
 
+.shop_item_container > div {
+  
+  padding: 0.6rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 .shop_item_container{
   display: grid;
   grid-gap: 10px;
   padding: 10px;
   width: 90%;
   margin: auto;
-  background-color: white;
+  background-color: rgb(238, 238, 238);
   grid-template-areas:
     'image image description description order'
     'rating reviews reviews reviews reviews';
@@ -435,6 +476,7 @@
   text-align: center;
   background: yellow;
   display: inline-block;
+  padding-top: 2px;
   justify-content: center;
 }
 
@@ -545,6 +587,7 @@
   }
 
   .payment-area{
+    padding: 1rem;
     width: 100%;
     overflow: auto;
   }

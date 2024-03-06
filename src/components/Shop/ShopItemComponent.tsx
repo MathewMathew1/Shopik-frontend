@@ -18,26 +18,12 @@ import DeleteReviewModal from '../../modals/DeleteReviewModal';
 import { useCart, useUpdateCart } from '../../contexts/CartContext';
 import Magnifier from '../../smallComponents/Magnifier';
 
-const ReviewR: ShopItemReview = {
-    id: "1",
-    userId: "5",
-    reviewText: "Good and fast delivery, item was excelent condition,Good and fast delivery, item was excelent conditionand fast delivery, item was excelent condition,Good and fast deliveryand fast delivery, item was excelent condition,Good and fast deliveryand fast delivery, item was excelent condition,Good and fast delivery",
-    createdDate: "2022-09-27T11:38:00.8997127+00:00",
-    shopItemId: "5",
-    userSending: {
-        username: "Molah",
-        role: RoleEnum.Admin,
-        createdDate: "2022-09-27T11:38:00.8997127+00:00"
-    },
-    rateFromUser: {
-        rate: 3,
-        createDate: "2022-09-27T11:38:00.8997127+00:00"
-    }
-}
+
 
 const ShopItemComponent = () => {
     const [shopItem, setShopItem] = useState<ShopItem>()
     const shopItemReviews = useArray<ShopItemReview>([])
+    const [percentageOfRatings, setPercentageOfRatings] = useState([0, 0, 0, 0, 0])
     const [isDataLoaded, setIsDataLoaded] = useState(false)
     const [numberOfItemsToBuy, setNumbersOfItemsToBuy] = useState("1")
     const [showImageModal, setShowImageModal] = useState(false)
@@ -73,6 +59,15 @@ const ShopItemComponent = () => {
             let item = await cart.getInfoAboutItem(params.id)
             if(item!==null){
                 item.name = capitalizedString(item.name)
+                const count = [0, 0, 0, 0, 0];
+                item.ratings.forEach(rating => {
+                    const rate = rating.Rate;
+                    count[rate - 1]++;
+                });
+                
+                const totalRatings = item.ratings.length;
+                const percentages = count.map(count => (count / totalRatings) * 100);
+                setPercentageOfRatings(percentages)
                 setShopItem(item)
                 document.title = `Shopik ${item.name}`
             }
@@ -95,7 +90,7 @@ const ShopItemComponent = () => {
     
                     console.log(response)
                     if(!("error" in response)){
-                        let reviews: ShopItemReview[] = [ReviewR,ReviewR,ReviewR,ReviewR,...response.reviews]
+                        let reviews: ShopItemReview[] = [...response.reviews]
                         const index = reviews.findIndex((review) => review.userId === user.userInfo?.id);
                         if(index !== -1) { 
                             const updatedReviews = [...reviews];
@@ -215,7 +210,7 @@ const ShopItemComponent = () => {
         navigate(checkoutUrl)
     }
 
-    
+    console.log(shopItem)
 
     return(
         <>
@@ -246,14 +241,14 @@ const ShopItemComponent = () => {
                                 </div>
                                 <div className='description-area'>
                                     <h3>{shopItem?.name}</h3>
-                                    <div className='info-block'>
+                                    <div className='info-block glass'>
                                         <div className='info-header'>Product Info:</div>
                                         <div className='Info'>
                                             {shopItem?.description}
                                         </div>
                                     </div>
-                                    <table>
-                                        <tbody>
+                                    <table className='glass info-table'>
+                                        <tbody >
                                             <tr>
                                                 <td className='title-td'>Price:</td>
                                                 <td className='info-td'>{shopItem?.price}$</td>
@@ -313,7 +308,7 @@ const ShopItemComponent = () => {
                                                 <div style={{display: "flex", gap: "1rem", alignItems: "baseline"}} key={i}>
                                                     <div className="mini-header">{i+1} stars</div>
                                                 
-                                                    <ProgressBar style={{flexGrow: "1"}} now={((i+1)/15)*100} label={`${Math.round(((i+1)/15)*100)}%`} />
+                                                    <ProgressBar style={{flexGrow: "1"}} now={percentageOfRatings[i]} label={`${percentageOfRatings[i]}%`} />
                                                     
                                                 </div>
                                             )
@@ -366,7 +361,7 @@ const ShopItemComponent = () => {
                                 </div>                 
                             </div>
                             <ImageModal title={shopItem!.name} showModal={showImageModal} setShowModal={setShowImageModal}
-                                imageLink={"https://media.cntraveler.com/photos/60088d408ebb4b589a89b54e/master/w_2100,h_1500,c_limit/LightweightJackets-2021-Uniqlo.jpg"}/>
+                                imageLink={shopItem.imageFilePath}/>
                             <ReviewModal showModal={showReviewModal} setShowModal={setShowReviewModal} updatingReview={userPostedReviewAlready}
                                 oldReviewText={textToStartWritingReview} reviewId={userReviewId} updateUserReview={updateUserReview} />  
                             <DeleteReviewModal showModal={showDeleteReviewModal} setShowModal={setShowDeleteReviewModal}

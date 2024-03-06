@@ -4,8 +4,10 @@ let BASE_ROUTES_URL: string
 let SITE_ROUTE_URL: string
 
 if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
-    BASE_ROUTES_URL = "https://localhost:7243/api/v1/"
-    SITE_ROUTE_URL = "http://localhost:3000"
+    //BASE_ROUTES_URL = "https://localhost:7243/api/v1/"
+    //SITE_ROUTE_URL = "http://localhost:3000"
+    BASE_ROUTES_URL = "https://shopik-api.onrender.com/api/v1/"
+    SITE_ROUTE_URL = "https://shopik.onrender.com/"
 }
 else{
     BASE_ROUTES_URL = "https://shopik-api.onrender.com/api/v1/"

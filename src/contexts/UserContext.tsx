@@ -55,10 +55,17 @@ const UserProvider = ({ children }: {children: React.ReactNode}): JSX.Element =>
                 'Content-type': 'application/json; charset=UTF-8',
                 'Authorization': "Bearer " + localStorage.getItem("token") || ""
             }})
-            .then(response => response.json())
             .then(response => {
-                if(!("error" in response || response.status===401)){
+                if(response.status===401){
+                    return {error: "Unauthorized"}
+                }
+                return response.json()
+            })
+            .then(response => {
+                console.log(response)
+                if(!("error" in response )){
                     setLogged(true)
+                    console.log(response)
                     setUserInfo(response.userInfo)           
                 }
             })

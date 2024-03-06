@@ -6,7 +6,7 @@ const getDateFromOffset = (offset: string) => {
     var dt = new Date(offset); 
     
     let day = dt.getDate()
-    let month = dt.getMonth()
+    let month = dt.getMonth() + 1
     let year = dt.getFullYear()
 
     const date = `${day}/${month}/${year}`

@@ -44,6 +44,8 @@ const NavbarComponent = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    console.log(cart)
+
     return (
         <>
             <Navbar bg="dark" variant="dark" expand="lg">
@@ -53,21 +55,19 @@ const NavbarComponent = () => {
                     <Navbar.Collapse style={{flexGrow: 0}}>
                         <Nav className="me-auto justify-content-end ">
                             <Nav.Link as={Link} to="/cardItems">
-                               
-                                    <div className='badge-holder'>
-                                        <Cart/>
-                                        {
-                                            cart.amountOfItemInCart>0?
-                                                <span className='badge'>{cart.amountOfItemInCart}</span>
-                                            :
-                                                null
-                                        } 
-                                    </div>
-                               
+                                <div className='badge-holder'>
+                                    <Cart/>
+                                    {
+                                        cart.amountOfItemInCart>0?
+                                            <span className='badge'>{cart.amountOfItemInCart}</span>
+                                        :
+                                            null
+                                    } 
+                                </div>        
                             </Nav.Link>            
                             {
                                 user.logged?
-                                    <NavDropdown title={
+                                    <NavDropdown style={{display: "flex", justifyContent: "center", flexDirection: "column"}} title={
                                         <div className="avatar-circle">{user.userInfo?.username[0].toUpperCase()}</div>
                                         } id="basic-nav-dropdown">
                                         <NavDropdown.Item >{user.userInfo?.username}</NavDropdown.Item>

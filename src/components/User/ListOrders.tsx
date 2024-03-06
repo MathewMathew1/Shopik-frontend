@@ -19,7 +19,7 @@ const DisplayOrders = ({orders, loaded}:{orders: Order[], loaded: boolean}) => {
         <>
             {
                 loaded?
-                    <div style={ICON_STYLE}>
+                    <div className="order-section" style={ICON_STYLE}>
                         {orders.length>0?
                             <>
                                 {orders.map((value, index) => {
